@@ -1,0 +1,1746 @@
+{
+    "blog_categories": [
+        {
+            "table": "blog_categories",
+            "column": "category_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "blog_categories",
+            "column": "category",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blog_categories",
+            "column": "category_slug",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "blog_comment_replies": [
+        {
+            "table": "blog_comment_replies",
+            "column": "comment_reply_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "blog_comment_replies",
+            "column": "blog_comment_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "blog_comments",
+                "targetColumn": "comment_id"
+            }
+        },
+        {
+            "table": "blog_comment_replies",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blog_comment_replies",
+            "column": "comment_reply",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blog_comment_replies",
+            "column": "created_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "blog_comments": [
+        {
+            "table": "blog_comments",
+            "column": "comment_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "blog_comments",
+            "column": "blog_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "blogs",
+                "targetColumn": "blog_id"
+            }
+        },
+        {
+            "table": "blog_comments",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blog_comments",
+            "column": "comment_content",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blog_comments",
+            "column": "created_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "blog_status": [
+        {
+            "table": "blog_status",
+            "column": "status_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "blog_status",
+            "column": "blog_status",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "blog_tags": [
+        {
+            "table": "blog_tags",
+            "column": "blog_tag_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "blog_tags",
+            "column": "blog_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "blogs",
+                "targetColumn": "blog_id"
+            }
+        },
+        {
+            "table": "blog_tags",
+            "column": "tag_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "tags",
+                "targetColumn": "tag_id"
+            }
+        }
+    ],
+    "blogs": [
+        {
+            "table": "blogs",
+            "column": "blog_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "blogs",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        },
+        {
+            "table": "blogs",
+            "column": "blog_status_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "blog_status",
+                "targetColumn": "status_id"
+            }
+        },
+        {
+            "table": "blogs",
+            "column": "category_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "blog_categories",
+                "targetColumn": "category_id"
+            }
+        },
+        {
+            "table": "blogs",
+            "column": "description",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blogs",
+            "column": "image",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blogs",
+            "column": "slug",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blogs",
+            "column": "title",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(200)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blogs",
+            "column": "blog_content",
+            "nullable": true,
+            "dataType": "longtext",
+            "columnnType": "longtext",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blogs",
+            "column": "updated_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "blogs",
+            "column": "published_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "chapters": [
+        {
+            "table": "chapters",
+            "column": "chapter_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "chapters",
+            "column": "module_definition_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "module_definitions",
+                "targetColumn": "module_definition_id"
+            }
+        },
+        {
+            "table": "chapters",
+            "column": "title",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "chapters",
+            "column": "sortIndex",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(2)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "code_katas": [
+        {
+            "table": "code_katas",
+            "column": "kata_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "code_katas",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "code_katas",
+            "column": "chapter_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "chapters",
+                "targetColumn": "chapter_id"
+            }
+        },
+        {
+            "table": "code_katas",
+            "column": "kata_ref",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "code_katas",
+            "column": "kata_title",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "cohorts": [
+        {
+            "table": "cohorts",
+            "column": "cohort_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "cohorts",
+            "column": "program_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "programs",
+                "targetColumn": "program_id"
+            }
+        },
+        {
+            "table": "cohorts",
+            "column": "title",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "cohorts",
+            "column": "start_date",
+            "nullable": false,
+            "dataType": "date",
+            "columnnType": "date",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "cohorts",
+            "column": "end_date",
+            "nullable": true,
+            "dataType": "date",
+            "columnnType": "date",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "kata_progress": [
+        {
+            "table": "kata_progress",
+            "column": "kata_progress_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "kata_progress",
+            "column": "kata_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "kata_progress",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "kata_progress",
+            "column": "chapter_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "chapters",
+                "targetColumn": "chapter_id"
+            }
+        },
+        {
+            "table": "kata_progress",
+            "column": "kata_ref",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "kata_progress",
+            "column": "kata_title",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "kata_progress",
+            "column": "completed_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "migrations": [
+        {
+            "table": "migrations",
+            "column": "id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "migrations",
+            "column": "name",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(255)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "migrations",
+            "column": "run_on",
+            "nullable": false,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "module_dates": [
+        {
+            "table": "module_dates",
+            "column": "module_dates_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "module_dates",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "module_dates",
+            "column": "class_time",
+            "nullable": false,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "module_definitions": [
+        {
+            "table": "module_definitions",
+            "column": "module_definition_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "module_definitions",
+            "column": "program_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "programs",
+                "targetColumn": "program_id"
+            }
+        },
+        {
+            "table": "module_definitions",
+            "column": "title",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "module_definitions",
+            "column": "description",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "module_definitions",
+            "column": "image",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "module_definitions",
+            "column": "price",
+            "nullable": true,
+            "dataType": "float",
+            "columnnType": "float(10,2)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "module_definitions",
+            "column": "currency",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(5)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "module_instructors": [
+        {
+            "table": "module_instructors",
+            "column": "module_instructor_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "module_instructors",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "module_instructors",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        }
+    ],
+    "modules": [
+        {
+            "table": "modules",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "modules",
+            "column": "cohort_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "cohorts",
+                "targetColumn": "cohort_id"
+            }
+        },
+        {
+            "table": "modules",
+            "column": "module_definition_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "module_definitions",
+                "targetColumn": "module_definition_id"
+            }
+        }
+    ],
+    "page_assets": [
+        {
+            "table": "page_assets",
+            "column": "page_asset_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "page_assets",
+            "column": "page_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "pages",
+                "targetColumn": "page_id"
+            }
+        },
+        {
+            "table": "page_assets",
+            "column": "document_url",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(200)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "page_feedback": [
+        {
+            "table": "page_feedback",
+            "column": "page_feedback_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "page_feedback",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        },
+        {
+            "table": "page_feedback",
+            "column": "page_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "pages",
+                "targetColumn": "page_id"
+            }
+        },
+        {
+            "table": "page_feedback",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "page_feedback",
+            "column": "created_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_feedback",
+            "column": "comments",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(750)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_feedback",
+            "column": "rating",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "page_questions": [
+        {
+            "table": "page_questions",
+            "column": "page_question_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "page_questions",
+            "column": "page_quiz_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "page_quiz",
+                "targetColumn": "page_quiz_id"
+            }
+        },
+        {
+            "table": "page_questions",
+            "column": "question_title",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_questions",
+            "column": "option_1",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_questions",
+            "column": "option_2",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_questions",
+            "column": "option_3",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_questions",
+            "column": "option_4",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_questions",
+            "column": "option_5",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(300)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "page_questions",
+            "column": "correct_option",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "page_quiz": [
+        {
+            "table": "page_quiz",
+            "column": "page_quiz_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "page_quiz",
+            "column": "page_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "pages",
+                "targetColumn": "page_id"
+            }
+        }
+    ],
+    "pages": [
+        {
+            "table": "pages",
+            "column": "page_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "pages",
+            "column": "chapter_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "chapters",
+                "targetColumn": "chapter_id"
+            }
+        },
+        {
+            "table": "pages",
+            "column": "title",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "pages",
+            "column": "page_content",
+            "nullable": true,
+            "dataType": "longtext",
+            "columnnType": "longtext",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "pages",
+            "column": "sortIndex",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(2)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "password_recovery_requests": [
+        {
+            "table": "password_recovery_requests",
+            "column": "password_recovery_request_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "password_recovery_requests",
+            "column": "requested_email",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(150)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "email"
+            }
+        },
+        {
+            "table": "password_recovery_requests",
+            "column": "shortcode",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(11)",
+            "columnKey": "UNI",
+            "extra": ""
+        },
+        {
+            "table": "password_recovery_requests",
+            "column": "recovered_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "password_recovery_requests",
+            "column": "expiry_date",
+            "nullable": false,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "password_recovery_requests",
+            "column": "created_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "programs": [
+        {
+            "table": "programs",
+            "column": "program_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "programs",
+            "column": "program_name",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "programs",
+            "column": "duration_hours",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "programs",
+            "column": "duration_weeks",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "programs",
+            "column": "price",
+            "nullable": true,
+            "dataType": "float",
+            "columnnType": "float(10,2)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "programs",
+            "column": "currency",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(5)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "subscriptions": [
+        {
+            "table": "subscriptions",
+            "column": "subscription_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "subscriptions",
+            "column": "email",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(120)",
+            "columnKey": "MUL",
+            "extra": ""
+        },
+        {
+            "table": "subscriptions",
+            "column": "channel",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(80)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "tags": [
+        {
+            "table": "tags",
+            "column": "tag_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "tags",
+            "column": "tag",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "user_ledgers": [
+        {
+            "table": "user_ledgers",
+            "column": "cohort_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "cohorts",
+                "targetColumn": "cohort_id"
+            }
+        },
+        {
+            "table": "user_ledgers",
+            "column": "user_ledger_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "user_ledgers",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "module_definition_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "credit",
+            "nullable": true,
+            "dataType": "float",
+            "columnnType": "float(10,2)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "credit_currency",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(8)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "amount",
+            "nullable": true,
+            "dataType": "float",
+            "columnnType": "float(10,2)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "user_payment_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "user_payments",
+                "targetColumn": "user_payment_id"
+            }
+        },
+        {
+            "table": "user_ledgers",
+            "column": "debit",
+            "nullable": true,
+            "dataType": "float",
+            "columnnType": "float(10,2)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "debit_currency",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(8)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_ledgers",
+            "column": "description",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "user_modules": [
+        {
+            "table": "user_modules",
+            "column": "user_module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "user_modules",
+            "column": "module_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "user_modules",
+            "column": "user_id",
+            "nullable": true,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        }
+    ],
+    "user_pageviews": [
+        {
+            "table": "user_pageviews",
+            "column": "user_pageviews_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "user_pageviews",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        },
+        {
+            "table": "user_pageviews",
+            "column": "page_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "pages",
+                "targetColumn": "page_id"
+            }
+        },
+        {
+            "table": "user_pageviews",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "user_pageviews",
+            "column": "viewed_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "user_payments": [
+        {
+            "table": "user_payments",
+            "column": "user_payment_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "user_payments",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        },
+        {
+            "table": "user_payments",
+            "column": "transaction_date",
+            "nullable": false,
+            "dataType": "date",
+            "columnnType": "date",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_payments",
+            "column": "amount",
+            "nullable": false,
+            "dataType": "float",
+            "columnnType": "float(10,2)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_payments",
+            "column": "payment_method",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(100)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_payments",
+            "column": "transaction_ref",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(200)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "user_progress": [
+        {
+            "table": "user_progress",
+            "column": "user_progress_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "user_progress",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        },
+        {
+            "table": "user_progress",
+            "column": "page_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "pages",
+                "targetColumn": "page_id"
+            }
+        },
+        {
+            "table": "user_progress",
+            "column": "chapter_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "chapters",
+                "targetColumn": "chapter_id"
+            }
+        },
+        {
+            "table": "user_progress",
+            "column": "module_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "modules",
+                "targetColumn": "module_id"
+            }
+        },
+        {
+            "table": "user_progress",
+            "column": "completed_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "user_quiz_attempts": [
+        {
+            "table": "user_quiz_attempts",
+            "column": "user_quiz_attempt_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "user_quiz_attempts",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "users",
+                "targetColumn": "user_id"
+            }
+        },
+        {
+            "table": "user_quiz_attempts",
+            "column": "page_question_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "page_questions",
+                "targetColumn": "page_question_id"
+            }
+        },
+        {
+            "table": "user_quiz_attempts",
+            "column": "attempted_at",
+            "nullable": true,
+            "dataType": "datetime",
+            "columnnType": "datetime",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_quiz_attempts",
+            "column": "is_correct",
+            "nullable": true,
+            "dataType": "tinyint",
+            "columnnType": "tinyint(1)",
+            "columnKey": "",
+            "extra": ""
+        }
+    ],
+    "user_types": [
+        {
+            "table": "user_types",
+            "column": "user_role",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "user_types",
+            "column": "user_type_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        }
+    ],
+    "users": [
+        {
+            "table": "users",
+            "column": "user_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "PRI",
+            "extra": "auto_increment"
+        },
+        {
+            "table": "users",
+            "column": "first_name",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "last_name",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "date_of_birth",
+            "nullable": true,
+            "dataType": "date",
+            "columnnType": "date",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "email",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "UNI",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "password",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(500)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "address",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "address_line_1",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "address_line_2",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(250)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "postcode",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(10)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "city",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(20)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "town",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(20)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "state",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(20)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "country",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(20)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "phone_number",
+            "nullable": false,
+            "dataType": "varchar",
+            "columnnType": "varchar(20)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "emergency_contact_name",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "contact_number",
+            "nullable": true,
+            "dataType": "varchar",
+            "columnnType": "varchar(50)",
+            "columnKey": "",
+            "extra": ""
+        },
+        {
+            "table": "users",
+            "column": "user_type_id",
+            "nullable": false,
+            "dataType": "int",
+            "columnnType": "int(11)",
+            "columnKey": "MUL",
+            "extra": "",
+            "foreignKeyTo": {
+                "targetTable": "user_types",
+                "targetColumn": "user_type_id"
+            }
+        }
+    ]
+}
