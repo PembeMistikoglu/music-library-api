@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 const request = require("supertest");
-const app = require("~root/app/index");
+const router = require("../src/app/routes");
 const safeDescribe = require("~test/utils/safeDescribe");
 // const getStudentJWTToken = require("~test/utils/getStudentJWTToken");
 // const deleteBlogCommentById = require("./queries/deleteBlogCommentById");
@@ -13,15 +13,15 @@ safeDescribe("#GET albums", () => {
   // const testPageId = 1;
 
   before(async () => {
-   await getAllAlbums();
+    await getAllAlbums();
   });
 
   it("should select all albums list", async () => {
-    const res = await request(app).get(`/albums`);
+    const res = await request(router).get(`/albums`);
     expect(res.statusCode).to.equal(201);
-    expect(res.body).to.eql({[
+    expect(res.body).to.eql([
       { album_id: 1, album_name: "Page", album_year: 2020 }
-    ]});
+    ]);
   });
 
   // it("should reject requests to non-existent page", async () => {
