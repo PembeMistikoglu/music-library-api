@@ -1,5 +1,3 @@
-const express = require("express");
-
 const { expect } = require("chai");
 const request = require("supertest");
 const app = require("~root/app/index");
@@ -11,16 +9,19 @@ const safeDescribe = require("~test/utils/safeDescribe");
 const getAllAlbums = require("../src/app/controllers/albums/getAllAlbums");
 
 safeDescribe("#GET albums", () => {
+  // let albums;
   // const testPageId = 1;
 
-  after(async () => {
-    await getAllAlbums();
+  before(async () => {
+   await getAllAlbums();
   });
 
   it("should select all albums list", async () => {
     const res = await request(app).get(`/albums`);
     expect(res.statusCode).to.equal(201);
-    expect(res.body).to.eql({});
+    expect(res.body).to.eql({[
+      { album_id: 1, album_name: "Page", album_year: 2020 }
+    ]});
   });
 
   // it("should reject requests to non-existent page", async () => {
