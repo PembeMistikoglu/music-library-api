@@ -19,3 +19,4 @@ sls-deployments
 serverless/**/package.zip
 .vscode/settings.json
 .xest/*
+.just/*
