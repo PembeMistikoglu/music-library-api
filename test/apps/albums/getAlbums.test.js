@@ -1,24 +1,28 @@
 const { expect } = require("chai");
 const request = require("supertest");
-const router = require("../src/app/routes");
+const router = require("~root/app");
 const safeDescribe = require("~test/utils/safeDescribe");
 // const getStudentJWTToken = require("~test/utils/getStudentJWTToken");
 // const deleteBlogCommentById = require("./queries/deleteBlogCommentById");
 // const selectAllAlbums = ("../src/actions/albums/fetchAllAlbums/queries/selectAllAlbums.js")
 // const selectAllAlbums = require("../src/actions/albums/fetchAllAlbums/queries/selectAllAlbums");
-const getAllAlbums = require("../src/app/controllers/albums/getAllAlbums");
 
 safeDescribe("#GET albums", () => {
   // let albums;
   // const testPageId = 1;
 
   before(async () => {
-    await getAllAlbums();
+    // await getAllAlbums();
   });
 
   it("should select all albums list", async () => {
-    const res = await request(router).get(`/albums`);
+    const res = await request(router)
+      .get(`/albums`)
+      .send()
+      .set("Authorization", `Bearer nope`)
+      .set("Accept", "application/json");
     expect(res.statusCode).to.equal(201);
+    console.log(res.body, "<<<< PEMBE TODO: THIS IS THE RESPONSE");
     expect(res.body).to.eql([
       { album_id: 1, album_name: "Page", album_year: 2020 }
     ]);
