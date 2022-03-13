@@ -1,11 +1,12 @@
 const { submitQuery, camelKeys } = require("~root/lib/database");
 
-const selectSongByAlbumId = () => submitQuery`
+const selectSongByAlbumId = ({ albumId }) => submitQuery`
    
-SELECT Songs.*, Artists.*, Albums.*
+SELECT song_id, Songs.name, Artists.name, Artists.genre, Albums.name, Albums.year
 FROM Songs
-INNER JOIN Artists ON Songs.artist_id = Artists.artist_id
-INNER JOIN Albums ON Artists.artist_id = Albums.artist_id;
+LEFT JOIN Artists ON Artists.artist_id = Songs.artist_id
+LEFT JOIN Albums ON Albums.album_id = Songs.album_id
+WHERE Songs.album_id=${albumId}
     `;
 
 module.exports = camelKeys(selectSongByAlbumId);

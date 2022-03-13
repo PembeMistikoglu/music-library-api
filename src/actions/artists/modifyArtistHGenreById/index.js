@@ -1,9 +1,9 @@
 const updateArtistGenreById = require("./queries/updateArtistGenreById");
 
-const modifyArtistGenreById = async ({ artistId, artistGenre }) => {
+const modifyArtistGenreById = async ({ artistId, genre }) => {
   const artist = await updateArtistGenreById({
     artistId,
-    artistGenre
+    genre
   });
 
   return { artist };

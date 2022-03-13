@@ -1,8 +1,8 @@
 const { submitQuery, getInsertId } = require("~root/lib/database");
 
-const updateArtistNameById = ({ artistId, artistName }) => submitQuery`
+const updateArtistNameById = ({ artistId, name }) => submitQuery`
     UPDATE Artists
-    SET artist_name=${artistName}
+    SET name=${name}
     WHERE artist_id=${artistId}
 `;
 

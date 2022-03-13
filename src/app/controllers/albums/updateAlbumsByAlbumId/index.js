@@ -3,13 +3,13 @@ const handleAPIError = require("~root/utils/handleAPIError");
 
 const patchAlbumByAlbumId = async (req, res) => {
   const { albumId } = req.params;
-  const { albumName, albumYear } = req.body;
+  const { name, year } = req.body;
 
   try {
     const { album } = await modifyAlbumByAlbumId({
       albumId,
-      albumName,
-      albumYear
+      name,
+      year
     });
 
     res.status(201).send({

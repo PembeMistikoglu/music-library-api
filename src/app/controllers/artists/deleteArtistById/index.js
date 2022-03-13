@@ -9,7 +9,7 @@ const deleteArtistById = async (req, res) => {
       artistId
     });
 
-    res.status(201).send({
+    res.status(204).send({
       deletedArtist
     });
   } catch (err) {

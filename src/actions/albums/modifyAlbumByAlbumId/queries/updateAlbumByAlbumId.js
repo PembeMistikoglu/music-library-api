@@ -1,9 +1,9 @@
-const { submitQuery, getInsertId } = require("~root/lib/database");
+const { submitQuery } = require("~root/lib/database");
 
-const updateAlbumByAlbumId = ({ albumId, albumName, albumYear }) => submitQuery`
+const updateAlbumByAlbumId = ({ albumId, name, year }) => submitQuery`
     UPDATE Albums
-    SET album_name=${albumName}, album_year=${albumYear}
+    SET name=${name}, year=${year}
     WHERE album_id=${albumId};
 `;
 
-module.exports = getInsertId(updateAlbumByAlbumId);
+module.exports = updateAlbumByAlbumId;

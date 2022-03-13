@@ -1,23 +1,23 @@
 const handleAPIError = require("~root/utils/handleAPIError");
 const createSong = require("~root/actions/songs/createSong");
 
-const postSongByAlbumId = async (req, res) => {
-  const { albumId } = req.params;
-  const { songName, artistId } = req.body;
+const postSong = async (req, res) => {
+  const { albumId, artistId } = req.params;
+  const { name } = req.body;
 
   try {
-    const { song } = await createSong({
+    const { songId } = await createSong({
       albumId,
-      songName,
+      name,
       artistId
     });
 
     res.status(201).send({
-      song
+      songId
     });
   } catch (err) {
     handleAPIError(res, err);
   }
 };
 
-module.exports = postSongByAlbumId;
+module.exports = postSong;

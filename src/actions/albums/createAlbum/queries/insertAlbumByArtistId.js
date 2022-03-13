@@ -1,12 +1,8 @@
-const { submitQuery } = require("~root/lib/database");
+const { submitQuery, getInsertId } = require("~root/lib/database");
 
-const insertAlbumByArtistId = ({
-  artistId,
-  albumName,
-  albumYear
-}) => submitQuery`
-INSERT INTO Albums (album_name, album_year, artist_id)
-VALUES (${albumName},${albumYear}, ${artistId});
+const insertAlbumByArtistId = ({ name, year, artistId }) => submitQuery`
+INSERT INTO Albums (name, year, artist_id)
+VALUES (${name}, ${year}, ${artistId});
 `;
 
-module.exports = insertAlbumByArtistId;
+module.exports = getInsertId(insertAlbumByArtistId);

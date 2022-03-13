@@ -3,12 +3,12 @@ const handleAPIError = require("~root/utils/handleAPIError");
 
 const patchArtistGenreById = async (req, res) => {
   const { artistId } = req.params;
-  const { artistGenre } = req.body;
+  const { genre } = req.body;
 
   try {
     const { artist } = await modifyArtistGenreById({
       artistId,
-      artistGenre
+      genre
     });
 
     res.status(201).send({

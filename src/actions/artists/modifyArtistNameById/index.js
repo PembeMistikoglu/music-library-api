@@ -1,9 +1,9 @@
 const updateArtistNameById = require("./queries/updateArtistNameById");
 
-const modifyArtistNameById = async ({ artistId, artistName }) => {
+const modifyArtistNameById = async ({ artistId, name }) => {
   const artist = await updateArtistNameById({
     artistId,
-    artistName
+    name
   });
 
   return { artist };

@@ -1,7 +1,7 @@
 const insertArtist = require("./queries/insertArtist");
 
-const createArtist = async ({ artistName, artistGenre }) => {
-  const artistId = await insertArtist({ artistName, artistGenre });
+const createArtist = async ({ name, genre }) => {
+  const artistId = await insertArtist({ name, genre });
   return { artistId };
 };
 
