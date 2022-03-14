@@ -49,7 +49,6 @@ router.get("/user-types", getUserTypes);
 
 // Artists //
 
-// this one below is extra
 router.get("/artists", getAllArtists);
 router.post("/artists", postArtist);
 router.get("/artists/:artistId", getArtistById);
