@@ -1,13 +1,13 @@
-const insertSongByAlbumId = require("./queries/insertSongByAlbumId");
+const insertSong = require("./queries/insertSongByAlbumId");
 
-const createSong = async ({ albumId, songName, artistId }) => {
-  const song = await insertSongByAlbumId({
+const createSong = async ({ albumId, name, artistId }) => {
+  const songId = await insertSong({
     albumId,
-    songName,
+    name,
     artistId
   });
 
-  return { song };
+  return { songId };
 };
 
 module.exports = createSong;

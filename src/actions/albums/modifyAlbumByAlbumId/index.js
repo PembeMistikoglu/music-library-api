@@ -1,10 +1,10 @@
 const updateAlbumByAlbumId = require("./queries/updateAlbumByAlbumId");
 
-const modifyAlbumByAlbumId = async ({ albumId, albumName, albumYear }) => {
+const modifyAlbumByAlbumId = async ({ albumId, name, year }) => {
   const album = await updateAlbumByAlbumId({
     albumId,
-    albumName,
-    albumYear
+    name,
+    year
   });
 
   return { album };

@@ -1,13 +1,13 @@
 const insertAlbumByArtistId = require("./queries/insertAlbumByArtistId");
 
-const createAlbum = async ({ artistId, albumName, albumYear }) => {
-  const album = await insertAlbumByArtistId({
+const createAlbum = async ({ artistId, name, year }) => {
+  const albumId = await insertAlbumByArtistId({
     artistId,
-    albumName,
-    albumYear
+    name,
+    year
   });
 
-  return { album };
+  return { albumId };
 };
 
 module.exports = createAlbum;

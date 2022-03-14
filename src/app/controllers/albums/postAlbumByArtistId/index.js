@@ -3,17 +3,17 @@ const createAlbum = require("~root/actions/albums/createAlbum");
 
 const postAlbumByArtistId = async (req, res) => {
   const { artistId } = req.params;
-  const { albumName, albumYear } = req.body;
+  const { name, year } = req.body;
 
   try {
-    const { album } = await createAlbum({
+    const { albumId } = await createAlbum({
       artistId,
-      albumName,
-      albumYear
+      name,
+      year
     });
 
     res.status(201).send({
-      album
+      albumId
     });
   } catch (err) {
     handleAPIError(res, err);

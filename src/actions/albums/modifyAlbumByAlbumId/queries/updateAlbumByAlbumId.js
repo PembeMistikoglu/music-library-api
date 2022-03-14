@@ -1,9 +1,27 @@
-const { submitQuery, getInsertId } = require("~root/lib/database");
+const { submitQuery, sql, sqlReduce } = require("~root/lib/database");
 
-const updateAlbumByAlbumId = ({ albumId, albumName, albumYear }) => submitQuery`
-    UPDATE Albums
-    SET album_name=${albumName}, album_year=${albumYear}
-    WHERE album_id=${albumId};
-`;
+const updateAlbumByAlbumId = ({ albumId, name = null, year = null }) => {
+  const updates = [];
 
-module.exports = getInsertId(updateAlbumByAlbumId);
+  if (name !== null) {
+    updates.push(sql`name = ${name}`);
+  }
+
+  if (year !== null) {
+    updates.push(sql`year = ${year}`);
+  }
+
+  if (updates.length !== 0) {
+    return submitQuery`
+    UPDATE 
+      Albums
+    SET
+      ${updates.reduce(sqlReduce)}
+    WHERE
+      album_id = ${albumId};
+  `;
+  }
+  return Promise.resolve();
+};
+
+module.exports = updateAlbumByAlbumId;

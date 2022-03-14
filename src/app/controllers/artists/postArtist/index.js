@@ -2,10 +2,10 @@ const handleAPIError = require("~root/utils/handleAPIError");
 const createArtist = require("~root/actions/artists/createArtist");
 
 const postArtist = async (req, res) => {
-  const { artistName, artistGenre } = req.body;
+  const { name, genre } = req.body;
 
   try {
-    const { artistId } = await createArtist({ artistName, artistGenre });
+    const { artistId } = await createArtist({ name, genre });
 
     res.status(201).send({
       artistId
