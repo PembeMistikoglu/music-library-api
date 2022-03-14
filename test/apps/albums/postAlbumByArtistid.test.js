@@ -22,6 +22,5 @@ safeDescribe("#POST Albums", () => {
 
     insertedAlbumId = response.body.albumId;
     expect(response.status).to.equal(201);
-    // should I expect the new body to inclune whaat and 1992?
   });
 });

@@ -20,7 +20,7 @@ safeDescribe("#POST artists", () => {
       });
 
     artistIdCreated = response.body.artistId;
-    s;
+
     expect(response.status).to.equal(201);
   });
 });

@@ -13,14 +13,14 @@ const { ADMIN } = require("~root/constants/userTypes");
 const getAllArtists = require("./controllers/artists/getAllArtists");
 const postArtist = require("./controllers/artists/postArtist");
 const getArtistById = require("./controllers/artists/getArtistById");
-const updateArtistNameById = require("./controllers/artists/updateArtistNameById");
-const updateArtistGenreById = require("./controllers/artists/updateArtistGenreById");
+const updateArtistById = require("./controllers/artists/updateArtistById");
 const deleteArtistById = require("./controllers/artists/deleteArtistById");
 
 // Albums //
 
 const getAllAlbums = require("./controllers/albums/getAllAlbums");
 const getAlbumsByArtistId = require("./controllers/albums/getAlbumsByArtistId");
+const getAlbumsByAlbumId = require("./controllers/albums/getAlbumByAlbumId");
 const postAlbumByArtistId = require("./controllers/albums/postAlbumByArtistId");
 const updateAlbumsByAlbumId = require("./controllers/albums/updateAlbumsByAlbumId");
 const deleteAlbumByAlbumId = require("./controllers/albums/deleteAlbumByAlbumId");
@@ -32,7 +32,7 @@ const getSongByAlbumId = require("./controllers/songs/getSongByAlbumId");
 const getAllSongs = require("./controllers/songs/getAllSongs");
 const getSongByArtistId = require("./controllers/songs/getSongByArtistId");
 const deleteSongById = require("./controllers/songs/deleteSongById");
-// const updateSongById = require("./controllers/songs/updateSongById");
+const updateSongById = require("./controllers/songs/updateSongById");
 
 const router = express.Router();
 
@@ -51,12 +51,9 @@ router.get("/user-types", getUserTypes);
 
 // this one below is extra
 router.get("/artists", getAllArtists);
-
 router.post("/artists", postArtist);
 router.get("/artists/:artistId", getArtistById);
-// ask Ersel, jenny did it with one update function but Ahmet did name and genre seperate
-router.patch("/artists-name/:artistId", updateArtistNameById);
-router.patch("/artists-genre/:artistId", updateArtistGenreById);
+router.patch("/artist/:artistId", updateArtistById);
 router.delete("/artists/:artistId", deleteArtistById);
 
 // Albums //
@@ -64,6 +61,7 @@ router.delete("/artists/:artistId", deleteArtistById);
 router.get("/albums", getAllAlbums);
 router.post("/artists/:artistId/album", postAlbumByArtistId);
 router.get("/artists/:artistId/albums", getAlbumsByArtistId);
+router.get("/albums/:albumId", getAlbumsByAlbumId);
 router.patch("/albums/:albumId", updateAlbumsByAlbumId);
 router.delete("/albums/:albumId", deleteAlbumByAlbumId);
 
@@ -73,7 +71,7 @@ router.post("/artists/:artistId/albums/:albumId/songs", postSong);
 router.get("/songs", getAllSongs);
 router.get("/albums/:albumId/songs", getSongByAlbumId);
 router.get("/artists/:artistId/songs", getSongByArtistId);
-// router.patch("/songs/:songId", updateSongById); // not done yet
+router.patch("/songs/:songId", updateSongById);
 router.delete("/songs/:songId", deleteSongById);
 
 module.exports = router;
